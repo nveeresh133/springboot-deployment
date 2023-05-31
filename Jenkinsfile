@@ -19,11 +19,13 @@ pipeline {
  }
  }
  
- stage('Cloning Git') {
- steps {
- git credentialsId: 'github-auth', url: 'https://github.com/nveeresh133/springboot-deployment.git' 
- }
- }
+ stage('Clone repository') { 
+            steps { 
+                script{
+                git credentialsId: 'github-auth', url: 'https://github.com/nveeresh133/springboot-deployment.git'
+                }
+            }
+        }
  
  // Building Docker images
  stage('Building image') {
