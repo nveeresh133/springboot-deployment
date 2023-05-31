@@ -44,15 +44,15 @@ pipeline {
 //                  echo 'Empty'
 //             }
 //         }
-        stage('Deploy') {
-            steps {
-                script{
-                        docker.withRegistry('https://823226410025.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:AWS Credentials') {
-                    app.push("${env.BUILD_NUMBER}")
-                    app.push("latest")
-                    }
-                }
-            }
-        }
+//         stage('Deploy') {
+//             steps {
+//                 script{
+//                         docker.withRegistry('https://823226410025.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:AWS Credentials') {
+//                     app.push("${env.BUILD_NUMBER}")
+//                     app.push("latest")
+//                     }
+//                 }
+//             }
+//         }
     }
 }
