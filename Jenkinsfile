@@ -19,7 +19,7 @@ pipeline {
         }
         
 
-		stage('Build'){
+		stage('mvn Build'){
 			steps {
 // 				sh '''mvn install -s settings.xml'''
 				sh '''mvn install'''
@@ -32,7 +32,7 @@ pipeline {
 			}
 		}
 
-        stage('Build') { 
+        stage('docker Build') { 
             steps { 
                 script{
                  app = docker.build("veeresh133/newrepodocker")
