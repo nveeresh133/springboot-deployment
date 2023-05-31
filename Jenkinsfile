@@ -13,7 +13,7 @@ pipeline {
 	 stage('Logging into AWS ECR') {
             steps {
                 script {
-                sh '''aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/g5m8j8k4'''
+                sh '''aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 823226410025.dkr.ecr.us-east-2.amazonaws.com'''
                 }
                  
             }
@@ -66,9 +66,9 @@ pipeline {
      	   stage('Pushing to ECR') {
      	       steps{  
          	   script {
-               		sh '''docker tag veeresh133/newrepodocker:latest public.ecr.aws/g5m8j8k4/veeresh133/newrepodocker:latest1'''
+               		sh '''docker tag veeresh133/newrepodocker:latest 823226410025.dkr.ecr.us-east-2.amazonaws.com/veeresh133/newrepodocker:latest'''
               
-			sh '''docker push public.ecr.aws/g5m8j8k4/veeresh133/newrepodocker:latest1'''
+			sh '''docker push 823226410025.dkr.ecr.us-east-2.amazonaws.com/veeresh133/newrepodocker:latest'''
 
          }
         }
