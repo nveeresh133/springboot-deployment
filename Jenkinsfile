@@ -10,14 +10,14 @@ pipeline {
     }
 
     stages {
-	 stage('Logging into AWS ECR') {
-            steps {
-                script {
-                sh '''aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 823226410025.dkr.ecr.us-east-2.amazonaws.com'''
-                }
+// 	 stage('Logging into AWS ECR') {
+//             steps {
+//                 script {
+//                 sh '''aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 823226410025.dkr.ecr.us-east-2.amazonaws.com'''
+//                 }
                  
-            }
-        }
+//             }
+//         }
          stage('Clone repository') { 
             steps { 
                 script{
