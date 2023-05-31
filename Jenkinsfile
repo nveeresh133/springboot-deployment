@@ -10,6 +10,14 @@ pipeline {
     }
 
     stages {
+	 stage('Logging into AWS ECR') {
+            steps {
+                script {
+                sh 'aws ecr-public get-login-password --region us-east-1 | docker login --username AWS --password-stdin public.ecr.aws/g5m8j8k4'
+                }
+                 
+            }
+        }
          stage('Clone repository') { 
             steps { 
                 script{
@@ -54,5 +62,16 @@ pipeline {
 //                 }
 //             }
 //         }
+	   // Uploading Docker images into AWS ECR
+     	   stage('Pushing to ECR') {
+     	       steps{  
+         	   script {
+               		sh '''docker tag veeresh133/newrepodocker:latest public.ecr.aws/g5m8j8k4/spring-boot-repo:latest1'''
+              
+			sh '''docker push public.ecr.aws/g5m8j8k4/veeresh133/newrepodocker:latest1'''
+
+         }
+        }
+       }
     }
 }
