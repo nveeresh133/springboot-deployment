@@ -3,6 +3,12 @@ pipeline {
     options {
         skipStagesAfterUnstable()
     }
+    
+    tools {
+         maven 'maven'
+         jdk 'openjdk-11'
+    }
+
     stages {
          stage('Clone repository') { 
             steps { 
@@ -11,6 +17,20 @@ pipeline {
                 }
             }
         }
+        
+
+		stage('Build'){
+			steps {
+// 				sh '''mvn install -s settings.xml'''
+				sh '''mvn install'''
+			}
+		}
+
+		stage('Test'){
+			steps{
+				sh '''mvn test'''
+			}
+		}
 
         stage('Build') { 
             steps { 
@@ -19,11 +39,11 @@ pipeline {
                 }
             }
         }
-        stage('Test'){
-            steps {
-                 echo 'Empty'
-            }
-        }
+//         stage('Test'){
+//             steps {
+//                  echo 'Empty'
+//             }
+//         }
         stage('Deploy') {
             steps {
                 script{
