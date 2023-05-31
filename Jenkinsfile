@@ -13,7 +13,7 @@ pipeline {
 // 	 stage('Logging into AWS ECR') {
 //             steps {
 //                 script {
-//                 sh '''aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 823226410025.dkr.ecr.us-east-2.amazonaws.com'''
+//                 sh '''aws ecr get-login-password --region us-east-2 | docker login --username AWS --password-stdin 823226410025.dkr.ecr.us-east-2.amazonaws.com --profile sandbox-01-veeresh'''
 //                 }
                  
 //             }
