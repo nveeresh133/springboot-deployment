@@ -66,7 +66,7 @@ pipeline {
      	   stage('Pushing to ECR') {
      	       steps{  
          	   script {
-               		sh '''docker tag veeresh133/newrepodocker:latest public.ecr.aws/g5m8j8k4/spring-boot-repo:latest1'''
+               		sh '''docker tag veeresh133/newrepodocker:latest public.ecr.aws/g5m8j8k4/veeresh133/newrepodocker:latest1'''
               
 			sh '''docker push public.ecr.aws/g5m8j8k4/veeresh133/newrepodocker:latest1'''
 
