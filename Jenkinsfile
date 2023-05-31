@@ -7,7 +7,7 @@ pipeline {
          stage('Clone repository') { 
             steps { 
                 script{
-                checkout scm
+                git credentialsId: 'github-auth', url: 'https://github.com/nveeresh133/springboot-deployment.git'
                 }
             }
         }
@@ -15,7 +15,7 @@ pipeline {
         stage('Build') { 
             steps { 
                 script{
-                 app = docker.build("underwater")
+                 app = docker.build("veeresh133/newrepodocker")
                 }
             }
         }
@@ -27,7 +27,7 @@ pipeline {
         stage('Deploy') {
             steps {
                 script{
-                        docker.withRegistry('https://720766170633.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:aws-credentials') {
+                        docker.withRegistry('https://823226410025.dkr.ecr.us-east-2.amazonaws.com', 'ecr:us-east-2:AWS Credentials') {
                     app.push("${env.BUILD_NUMBER}")
                     app.push("latest")
                     }
