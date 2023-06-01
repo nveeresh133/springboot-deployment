@@ -8,7 +8,7 @@ public class ErrorHandlerController implements ErrorController{
 	private static final String PATH = "/";
 	 @RequestMapping(value=PATH)
 	 public String error() {
-	  return "Ktree Helloworld";
+	  return "Hello QT testing";
 	 }
 	 @Override
 	 public String getErrorPath() {
