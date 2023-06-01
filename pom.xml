@@ -6,7 +6,7 @@ http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<groupId>helloworld</groupId>
 	<artifactId>helloworld</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>ktree helloworld</name>
+	<name>Hello QT testing</name>
      <packaging>jar</packaging>
 	  <parent>
 		<groupId>org.springframework.boot</groupId>
