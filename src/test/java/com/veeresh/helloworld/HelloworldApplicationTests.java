@@ -1,4 +1,4 @@
-package com.ktree.helloworld;
+package com.veeresh.helloworld;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
